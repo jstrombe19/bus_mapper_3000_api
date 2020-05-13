@@ -1,5 +1,5 @@
 class BusesController < ApplicationController
-  before_action :find_bus_by_id, only: [:show]
+  before_action :find_bus_by_id, only: [:show, :update]
 
   def index
     @buses = Bus.all 
@@ -16,6 +16,8 @@ class BusesController < ApplicationController
   end
 
   def update
+    @bus.update(bus_params)
+    render json: @bus
   end
 
   def destroy
