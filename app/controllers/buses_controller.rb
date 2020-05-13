@@ -1,5 +1,5 @@
 class BusesController < ApplicationController
-  before_action :find_bus_by_id, only: [:show, :update]
+  before_action :find_bus_by_id, only: [:show, :update, :destroy]
 
   def index
     @buses = Bus.all 
@@ -21,6 +21,8 @@ class BusesController < ApplicationController
   end
 
   def destroy
+    @bus.destroy 
+    redirect_to action: "index"
   end
 
   private
