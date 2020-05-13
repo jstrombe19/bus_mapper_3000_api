@@ -3,11 +3,11 @@ class BusesController < ApplicationController
 
   def index
     @buses = Bus.all 
-    render json: @buses 
+    render json: @buses, include: :riders
   end
 
   def show
-    render json: @bus
+    render json: @bus, include: :riders
   end
 
   def create
